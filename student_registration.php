@@ -1,7 +1,24 @@
 
-
-<? php
+<?php
 include "db connect.php";
+if(isset($_POST['submit'])) {
+
+    extract($_POST);
+    $count = 0;
+    $sql = "SELECT username FROM `student`";
+    $res = mysqli_query($db, $sql);
+    while ($row = mysqli_fetch_assoc($res)){
+        if ($row['username'] == $_POST['username']) {
+            $count = $count + 1;
+        }
+    }
+
+    if ($count == 0) {
+    mysqli_query($db, "INSERT INTO student VALUES('$First', '$Second', '$username', '$roll', '$email', '$contact', '$password')");
+
+    }
+}
+
 ?>
 
 
@@ -33,8 +50,8 @@ include "db connect.php";
         <ul>
             <li> <a href="index.php">HOME</a> </li>
             <li> <a href="books.php">BOOKS</a> </li>
-            <li> <a href="student%20login.php">STUDENT-REGISTRATION</a> </li>
-            <li> <a href="student%20registration.php">REGISTRATION</a> </li>
+            <li> <a href="student_login.php">STUDENT-REGISTRATION</a> </li>
+            <li> <a href="student_registration.php">REGISTRATION</a> </li>
             <li> <a href="feedback.php">FEEDBACK</a> </li>
         </ul>
     </nav>
@@ -47,7 +64,7 @@ include "db connect.php";
     <div class="box2" >
         <h1 style="text-align: center";>Library Management System</h1>
         <h1 style="text-align: center">User Registration</h1>
-        <form name="login" action="student%20registration.php" method="POST">
+        <form name="login"  method="POST">
             <br><br>
             <div class="register">
                 <input class="form-control" type="text" name="First" placeholder="First Name" required><br><br>
@@ -57,7 +74,7 @@ include "db connect.php";
                 <input class="form-control" type="text" name="email" placeholder="Email" required><br><br>
                 <input class="form-control" type="text" name="contact" placeholder="Phone No" required><br><br>
                 <input class="form-control" type="Password" name="password" placeholder="Password" required><br><br>
-                <input class="btn btn-default" type="submit" name="submit" value="Register" style="background-color: darkslategray">
+                <input class="btn btn-default" type="submit" name="submit" value="submit" style="background-color: darkslategray">
             </div>
         </form>
 
@@ -66,54 +83,7 @@ include "db connect.php";
 
 
 </section>
-<? php
-if(isset($_ POST['submit']))
-{
-$count=0;
-$sql="SELECT username FROM `student`";
-$res=mysqli_query($db,$sql);
 
-{
-if( $row['username']==$_POST['username'])
-
-{
-
-$count=$count+1;
-}
-
-
-}
-if($count==0)
-
- while($_row=mysqli_fetch_assoc($res))
-
-  {mysqli_query($db,"INSERT INTO `student` VALUES"('$_POST[First]', '$_POST[Name]', '$_POST[username]', '$_POST[roll]',
- '$_POST[email]', '$_POST[contact]', '$_POST[password]');");
-
-
- ?>
-<script type="text/javascript">
-
-    alert("Registration Successful");
-</script>
-
-<? php
-}
-else{
- ?>
-<script type="text/javascript">
-
-    alert("username already exists.");
-</script>
-
-<? php
-
-}
-
- }
-
-
-?>
 </body>
 
 </html>

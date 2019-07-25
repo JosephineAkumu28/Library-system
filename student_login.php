@@ -1,9 +1,21 @@
 
-<? php
+<?php
 include "db connect.php";
+if(isset($_POST['submit'])) {
+    $count = 0;
+    $res = mysqli_query($db, "SELECT * FROM `student` WHERE username='$_POST[username]' && password='$_POST[password]';");
+    $count = mysqli_num_rows($res);
+    if ($count > 0) {
+        header("location: dashboard");
+
+    }else{
+
+        echo "<script>alert('wrong password')</script>";
+    }
+}
+
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +43,9 @@ include "db connect.php";
     <nav>
         <ul>
             <li> <a href="index.php">HOME</a> </li>
-            <li> <a href=" book.php">BOOKS</a> </li>
-            <li> <a href="student%20login.php">STUDENT-LOGIN</a> </li>
-            <li> <a href="student%20registration.php">REGISTRATION</a> </li>
+            <li> <a href=" books.php">BOOKS</a> </li>
+            <li> <a href="student_login.php">STUDENT-LOGIN</a> </li>
+            <li> <a href="student_registration.php">REGISTRATION</a> </li>
             <li> <a href="feedback.php">FEEDBACK</a> </li>
         </ul>
     </nav>
@@ -46,10 +58,10 @@ include "db connect.php";
     <div class="box1" >
         <h1 style="text-align: center"; >Library Management System</h1>
         <h1 style="text-align: center">User log In</h1>
-        <form name="login" action="student%20login.php" method="POST">
+        <form name="login" action="student_login.php" method="POST">
             <br>
             <div class="login">
-                <input class="form-control" type="text" name="User name" placeholder="User name" required><br><br>
+                <input class="form-control" type="text" name="username" placeholder="User name" required><br><br>
                 <input class="form-control"type="Password" name="password" placeholder="Password" required><br><br>
                 <input class="btn btn-default" type="submit" name="submit" value="LogIn" style=  background-color:darkblue; >
             </div>
@@ -66,39 +78,6 @@ include "db connect.php";
 
 
 </section>
-
-<? php
-{
-if(isset($_POST['submit']))
-   $count==0;
-$res=mysqli_query($db,"SELECT * FROM `student` WHERE username='$_POST[username]' && password='$_POST[password]';");
-
-  $count=mysqli_num_rows($res);
-
-   if($count==0)
-   {
-?>
-
-    <script type="text/javascript">
-        alert("username and password does not match.");
-    </script>
-<? php
-{
-else
-}
-
-?>
- <script type="text/javascript">
-     window.location="index.php"
- </script>
-<? php
-
-?>
-   }
-
-}
-
-
 
 
 </body>

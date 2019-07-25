@@ -1,7 +1,7 @@
-<? php
-include "nav-bar.php"
+<?php
+include "nav-bar.php";
 include "db connect.php"
-        ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -64,8 +64,8 @@ include "db connect.php"
         <ul>
             <li> <a href="index.php">HOME</a> </li>
             <li> <a href="books.php">BOOKS</a> </li>
-            <li> <a href="student%20login.php">STUDENT-REGISTRATION</a> </li>
-            <li> <a href="student%20registration.php">REGISTRATION</a> </li>
+            <li> <a href="student_login.php">STUDENT-REGISTRATION</a> </li>
+            <li> <a href="student_registration.php">REGISTRATION</a> </li>
             <li> <a href="feedback.php">FEEDBACK</a> </li>
         </ul>
     </nav>
@@ -85,7 +85,7 @@ include "db connect.php"
 
 <div class="scroll">
 
-    <? php
+    <?php
 if( isset ($_POST['submit']))
 {
 
@@ -96,7 +96,7 @@ if( isset ($_POST['submit']))
  $q="SELECT * FROM `comments`  ORDER BY `comments`.`id` DESC";
  $res=mysqli_query($db,$q );
 
- echo"<table class='table table bordered'>"
+ echo"<table class='table table bordered'>";
     while($row=mysqli_fetch_assoc($res)){
 
 echo "<tr>";
@@ -117,7 +117,7 @@ echo "<tr>";
     $q="SELECT * FROM `comments`  ORDER BY `comments`.`id` DESC";
     $res=mysqli_query($db,$q );
 
-    echo"<table class='table table bordered'>"
+    echo"<table class='table table bordered'>";
     while($row=mysqli_fetch_assoc($res)){
 
     echo "<tr>";

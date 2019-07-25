@@ -26,8 +26,8 @@
             <ul>
                 <li> <a href="index.php">HOME</a> </li>
                 <li> <a href="books.php">BOOKS </a> </li>
-                <li> <a href="student%20login.php">STUDENT-LOGIN</a> </li>
-                <li> <a href="student%20registration.php">REGISTRATION</a> </li>
+                <li> <a href="student_login.php">STUDENT-LOGIN</a> </li>
+                <li> <a href="student_registration.php">REGISTRATION</a> </li>
                 <li> <a href="feedback.php">FEEDBACK</a> </li>
             </ul>
         </nav>

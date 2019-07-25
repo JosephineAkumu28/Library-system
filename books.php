@@ -1,6 +1,6 @@
-<? php
+<?php
 include "db connect.php";
-        ?>
+?>
 <!DOCTYPE html>
 <html>
 
@@ -70,7 +70,7 @@ include "db connect.php";
 
 
 
-<? php
+<?php
 
 if(isset($_POST['submit']))
 {
@@ -83,7 +83,7 @@ echo " sorry,no book found,,,try searching again";
 else
 {
 echo "<table class='table table-bordered table-hover'>";
-    echo "<tr style="background-color: white ">";
+    echo '<tr style="background-color: white ">';
 
     echo "<th>";   echo "ID";   echo "</th>>";
     echo "<th>";    echo "Book-Name "; "</th>>";
@@ -95,9 +95,7 @@ echo "<table class='table table-bordered table-hover'>";
 
     echo "</tr>>";
 
-    while($row=mysqli_fetch_assoc($q))
-
-    {
+    while($row=mysqli_fetch_assoc($q)){
     echo "<tr>";
 
     echo "<td>";  echo $row['bid'];  echo "</td>";
@@ -121,7 +119,7 @@ $res=mysqli_query($db,"SELECT * FROM `books`;");
 
 
 echo "<table class='table table-bordered table-hover'>";
-    echo "<tr style="background-color: white ">";
+    echo '<tr style="background-color: white ">';
 
         echo "<th>";   echo "ID";   echo "</th>>";
         echo "<th>";    echo "Book-Name ";    "</th>>";
@@ -159,7 +157,7 @@ $res=mysqli_query($db,"SELECT * FROM `books`;");
 
 
 echo "<table class='table table-bordered table-hover'>";
-echo "<tr style="background-color: white ">";
+echo '<tr style="background-color: white ">';
 
          //Table header
     echo "<th>";   echo "ID";   echo "</th>>";

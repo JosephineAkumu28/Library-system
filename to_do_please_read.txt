@@ -1,0 +1,8 @@
+read on the following;
+
+1:use boostrap for fastor and responsive web design
+mostly grid system
+2:use include to prevent writing the nav bar multiple times
+2:jquery for ui and easy javascript
+3:avoid mixing codes where not nescesaly use the syntax i have used
+4:read on datatables() a js libraly
